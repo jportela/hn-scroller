@@ -8,7 +8,7 @@ export default function Footer({ clearCache }) {
       {' '}
       <a href="http://www.github.com/jportela" target="_blank">jportela</a>
       {' '}
-      [<a href="#" onClick={clearCache}>Clear Cache</a>]
+      [<a href="/" onClick={clearCache}>Clear Cache</a>]
     </footer>
   )
 }
