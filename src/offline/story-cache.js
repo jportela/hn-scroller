@@ -39,10 +39,9 @@ export default class StoryCache {
     }
 
     const itemSet = new Set(newItems)
-    stories.forEach(item => {
-      if (!itemSet.has(item)) {
-        this.storage.removeItem(StoryCache.getKey(item.id))
-        console.log('removing', StoryCache.getKey(item.id))
+    stories.forEach(id => {
+      if (!itemSet.has(id)) {
+        this.storage.removeItem(StoryCache.getKey(id))
       }
     })
     this.storage.setItem('stories', JSON.stringify(newItems))

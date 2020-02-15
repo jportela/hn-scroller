@@ -1,5 +1,5 @@
 export default class Stories {
-  constructor (newStoriesIds) {
+  constructor (newStoriesIds = []) {
     this.newStoriesIds = newStoriesIds
     this.stories = new Map()
   }

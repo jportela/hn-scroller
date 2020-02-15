@@ -25,7 +25,6 @@ function useInfiniteScroll (onScroll) {
         return
       }
       if ($element.scrollTop + $element.clientHeight >= $element.scrollHeight - SCROLL_THRESHOLD) {
-        console.log('fetching new elements!')
         onScroll()
       }
     }

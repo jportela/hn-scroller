@@ -1,5 +1,7 @@
-export default function fetchMock (result) {
-  return {
-    json () { return Promise.resolve(result) }
-  }
+/* eslint-env jest */
+
+export default function createFetch (jsonResult) {
+  return jest.fn().mockResolvedValue({
+    json: jest.fn().mockResolvedValue(jsonResult)
+  })
 }

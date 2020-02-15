@@ -20,16 +20,12 @@ async function start () {
   let storiesIds = []
 
   try {
-    console.log('getting new stories')
     storiesIds = await client.getNewStories()
-    console.log('entering here?')
     setTimeout(() => {
       cache.clearUnusedItems(storiesIds)
     }, 1)
   } catch (e) {
-    console.log('couldnt get stories', e)
     storiesIds = cache.getStories()
-    console.log('from cache, storiesIds', storiesIds)
   }
   const stories = new Stories(storiesIds)
   const storiesProvider = new StoriesProvider(client, stories, cache)
