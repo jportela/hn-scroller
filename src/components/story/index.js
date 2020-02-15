@@ -3,7 +3,7 @@ import StoryTitle from './title'
 import StoryAuthor from './author'
 import StoryTime from './time'
 
-export default function Story ({ id, title, url, author, timestamp, isLazy }) {
+export default function Story ({ title, url, author, timestamp, isLazy }) {
   if (!title) {
     return null
   }

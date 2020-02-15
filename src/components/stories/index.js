@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useEffect, useReducer, useMemo } from 'react'
 import Story from '../story'
 import LazyStory from '../story/lazy'
 import InfiniteScrollable from '../scrollable/infinite'
@@ -29,7 +29,7 @@ export default function Stories ({ provider }) {
       return (<LazyStory id={storyId} key={storyId} />)
     }
 
-    return (
+    return useMemo(() => (
       <Story
         id={storyId}
         key={storyId}
@@ -38,7 +38,7 @@ export default function Stories ({ provider }) {
         author={story.author}
         timestamp={story.timestamp}
       />
-    )
+    ), [story])
   })
 
   return (
