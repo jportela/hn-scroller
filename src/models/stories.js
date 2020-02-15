@@ -1,18 +1,18 @@
 export default class Stories {
-  constructor(newStoriesIds) {
+  constructor (newStoriesIds) {
     this.newStoriesIds = newStoriesIds
     this.stories = new Map()
   }
 
-  addStory(story) {
+  addStory (story) {
     this.stories.set(story.id, story)
   }
 
-  getStory(id) {
+  getStory (id) {
     return this.stories.get(id)
   }
 
-  getNewStoryIds(offset, limit) {
+  getNewStoryIds (offset, limit) {
     if (offset >= this.newStoriesIds.length) {
       return [] // end of stream
     }

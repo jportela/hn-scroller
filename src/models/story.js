@@ -7,19 +7,19 @@ export default class Story {
     this.timestamp = timestamp
   }
 
-  static fromItem(item) {
+  static fromItem (item) {
     return new Story({
       id: item.id,
       title: item.title,
       url: item.url,
       author: item.by,
-      timestamp: item.time,
+      timestamp: item.time
     })
   }
 
-  static fromNull(itemId) {
+  static fromNull (itemId) {
     return new Story({
-      id: itemId,
+      id: itemId
     })
   }
 }

@@ -1,5 +1,5 @@
-export default function fetchMock(result) {
+export default function fetchMock (result) {
   return {
-    json() { return Promise.resolve(result) }
+    json () { return Promise.resolve(result) }
   }
 }

@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 
 const SCROLL_THRESHOLD = 50
 
-export default function InfiniteScrollable({ onScroll, children }) {
+export default function InfiniteScrollable ({ onScroll, children }) {
   const containerRef = useInfiniteScroll(onScroll)
 
   return (
@@ -12,7 +12,7 @@ export default function InfiniteScrollable({ onScroll, children }) {
   )
 }
 
-function useInfiniteScroll(onScroll) {
+function useInfiniteScroll (onScroll) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -26,15 +26,15 @@ function useInfiniteScroll(onScroll) {
       }
       if ($element.scrollTop + $element.clientHeight >= $element.scrollHeight - SCROLL_THRESHOLD) {
         console.log('fetching new elements!')
-        onScroll();
+        onScroll()
       }
     }
-    ref.current.addEventListener('scroll', listener);
+    ref.current.addEventListener('scroll', listener)
     return () => {
       if (!ref.current) {
         return
       }
-      ref.current.removeEventListener('scroll', listener);
+      ref.current.removeEventListener('scroll', listener)
     }
   }, [ref])
 

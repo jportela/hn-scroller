@@ -1,5 +1,7 @@
-import fetchMock from "../../mocks/fetch"
-import HackerNewsHttpClient from "../../../src/clients/hacker-news/http"
+/* eslint-env jest */
+
+import fetchMock from '../../mocks/fetch'
+import HackerNewsHttpClient from '../../../src/clients/hacker-news/http'
 
 const fetch = jest.fn().mockResolvedValue(fetchMock([]))
 

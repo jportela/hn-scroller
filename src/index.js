@@ -8,15 +8,15 @@ import '../styles/main.css'
 import { register as registerServiceWorker } from './offline/register'
 import StoryCache from './offline/story-cache'
 
-async function start() {
+async function start () {
   registerServiceWorker()
 
   const client = new HackerNewsHttpClient(
-    fetch.bind(window),
+    window.fetch.bind(window),
     'https://hacker-news.firebaseio.com/'
   )
 
-  const cache = new StoryCache(localStorage)
+  const cache = new StoryCache(window.localStorage)
   let storiesIds = []
 
   try {
@@ -42,9 +42,7 @@ async function start() {
       cache={cache}
     />,
     $content
-  );
-
-
+  )
 }
 
 start().catch(err => console.error(err))

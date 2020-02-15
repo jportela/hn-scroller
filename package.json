@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack-dev-server -d --inline --mode development ",
-    "lint": "standard src/",
+    "lint": "standard",
     "postinstall": "npm run build",
     "start": "http-server dist/ -o",
     "test": "jest"

@@ -1,6 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const config = {
   entry: {
@@ -9,27 +9,27 @@ const config = {
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist')
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin()
   ],
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        use: ['babel-loader'],
+        use: ['babel-loader']
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-    ],
-  },
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      }
+    ]
+  }
 }
 
 module.exports = (env, argv) => {
@@ -38,7 +38,7 @@ module.exports = (env, argv) => {
   if (argv.mode === 'development') {
     config.devtool = 'cheap-eval-source-map'
     config.devServer = {
-      open: true,
+      open: true
     }
   }
 

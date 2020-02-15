@@ -1,4 +1,6 @@
-import { ago } from "../../../src/shared/time/ago"
+/* eslint-env jest */
+
+import { ago } from '../../../src/shared/time/ago'
 
 test('it outputs a few seconds ago', () => {
   expect(ago(5)).toBe('a few seconds ago')

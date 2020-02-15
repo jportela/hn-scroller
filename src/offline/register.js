@@ -1,4 +1,4 @@
-export async function register() {
+export async function register () {
   if ('serviceWorker' in navigator) {
     try {
       await navigator.serviceWorker.register('/sw.js')

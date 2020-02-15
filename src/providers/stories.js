@@ -1,5 +1,5 @@
-import Story from "../models/story"
-import EventListener from "../shared/events/listener"
+import Story from '../models/story'
+import EventListener from '../shared/events/listener'
 
 export default class StoriesProvider {
   constructor (client, stories, cache) {
@@ -11,7 +11,7 @@ export default class StoriesProvider {
     this.storyListener = new EventListener()
   }
 
-  fetchNextStories(limit) {
+  fetchNextStories (limit) {
     if (this.isFetching) {
       return []
     }
@@ -28,7 +28,7 @@ export default class StoriesProvider {
     return storyIds
   }
 
-  async fetchStory(storyId) {
+  async fetchStory (storyId) {
     let story = this.stories.getStory(storyId)
 
     if (!story) {
@@ -45,7 +45,7 @@ export default class StoriesProvider {
       } else { // null items
         story = Story.fromNull(storyId)
       }
-      
+
       this.cache.add(story)
       this.stories.addStory(story)
     }
@@ -53,11 +53,10 @@ export default class StoriesProvider {
     this.storyListener.fire(story)
   }
 
-  onNewStory(cb) {
+  onNewStory (cb) {
     this.storyListener.registerListener(cb)
     return () => {
       this.storyListener.removeListener(cb)
     }
   }
-
 }

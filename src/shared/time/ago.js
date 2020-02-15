@@ -1,3 +1,8 @@
+/**
+ * Outputs timestamp in a friendly format
+ * ... minutes/hours/days/etc ago
+ */
+
 const MINUTE = 60
 const HOUR = 60 * MINUTE
 const DAY = 24 * HOUR
@@ -5,7 +10,7 @@ const WEEK = 7 * DAY
 const MONTH = 30 * DAY
 const YEAR = 365 * DAY
 
-export function ago(timeInSeconds) {
+export function ago (timeInSeconds) {
   if (timeInSeconds > YEAR) {
     const result = Math.floor(timeInSeconds / YEAR)
     return `over ${result} year${plural(result)} ago`
@@ -29,11 +34,11 @@ export function ago(timeInSeconds) {
   }
 }
 
-export function agoFromTimestamp(timestamp) {
+export function agoFromTimestamp (timestamp) {
   const timeInSeconds = ((+new Date()) - timestamp) / 1000
   return ago(timeInSeconds)
 }
 
-function plural(result) {
+function plural (result) {
   return result > 1 ? 's' : ''
 }

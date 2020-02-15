@@ -2,11 +2,11 @@ const STORIES_KEY = 'stories'
 const STORY_ITEM_PREFIX = 'story'
 
 export default class StoryCache {
-  constructor(storage) {
+  constructor (storage) {
     this.storage = storage
   }
 
-  get(storyId) {
+  get (storyId) {
     const result = this.storage.getItem(StoryCache.getKey(storyId))
     if (!result) {
       return null
@@ -14,11 +14,11 @@ export default class StoryCache {
     return JSON.parse(result)
   }
 
-  add(story) {
+  add (story) {
     this.storage.setItem(StoryCache.getKey(story.id), JSON.stringify(story))
   }
-  
-  getStories() {
+
+  getStories () {
     const result = this.storage.getItem(STORIES_KEY)
     if (!result) {
       return []
@@ -26,11 +26,11 @@ export default class StoryCache {
     return JSON.parse(result)
   }
 
-  clear() {
+  clear () {
     this.storage.clear()
   }
 
-  clearUnusedItems(newItems) {
+  clearUnusedItems (newItems) {
     const stories = this.getStories()
 
     if (stories.length === 0) {
@@ -48,7 +48,7 @@ export default class StoryCache {
     this.storage.setItem('stories', JSON.stringify(newItems))
   }
 
-  static getKey(storyId) {
+  static getKey (storyId) {
     return `${STORY_ITEM_PREFIX}-${storyId}`
   }
 }

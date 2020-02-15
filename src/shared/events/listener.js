@@ -1,18 +1,17 @@
 export default class EventListener {
-  constructor() {
+  constructor () {
     this.listeners = new Set()
   }
 
-  registerListener(listener) {
+  registerListener (listener) {
     this.listeners.add(listener)
   }
 
-  removeListener(listener) {
+  removeListener (listener) {
     this.listeners.delete(listener)
   }
 
-  fire(payload) {
+  fire (payload) {
     this.listeners.forEach(listener => listener(payload))
   }
-
 }

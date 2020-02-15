@@ -1,12 +1,11 @@
-import React, { useEffect, useState, useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import Story from '../story'
 import LazyStory from '../story/lazy'
 import InfiniteScrollable from '../scrollable/infinite'
 
 const STORIES_PAGINATION = 30
 
-export default function Stories({ provider }) {
-
+export default function Stories ({ provider }) {
   const [storiesIds, appendStoriesIds] = useStoriesIds()
   const [storyMap, addNewStory] = useStoryMap({})
 
@@ -44,48 +43,48 @@ export default function Stories({ provider }) {
 
   return (
     <InfiniteScrollable onScroll={fetchNextStories}>
-      <ul className="stories-list">
+      <ul className='stories-list'>
         {renderedStories}
       </ul>
     </InfiniteScrollable>
   )
-
 }
-function storyIdsReducer(state, action) {
+function storyIdsReducer (state, action) {
   switch (action.type) {
     case 'append-stories':
-      const { storiesIds } = action
-      return state.concat(storiesIds)
+      return state.concat(action.storiesIds)
     default:
-      throw new Error();
+      throw new Error()
   }
 }
 
-function useStoriesIds(initialVal = []) {
+function useStoriesIds (initialVal = []) {
   const [storiesIds, dispatch] = useReducer(storyIdsReducer, initialVal)
 
   const appendStoriesIds = (ids) => {
-    dispatch({ type: 'append-stories', storiesIds: ids } )
+    dispatch({ type: 'append-stories', storiesIds: ids })
   }
 
   return [storiesIds, appendStoriesIds]
 }
 
-function storyMapReducer(state, action) {
+function storyMapReducer (state, action) {
   switch (action.type) {
     case 'add-story':
-      const { story } = action
-      return { ...state, [story.id]: story };
+      return {
+        ...state,
+        [action.story.id]: action.story
+      }
     default:
-      throw new Error();
+      throw new Error()
   }
 }
 
-function useStoryMap(initialVal = {}) {
+function useStoryMap (initialVal = {}) {
   const [storyMap, dispatch] = useReducer(storyMapReducer, initialVal)
 
   const addNewStory = (story) => {
-    dispatch({ type: 'add-story', story} )
+    dispatch({ type: 'add-story', story })
   }
 
   return [storyMap, addNewStory]
