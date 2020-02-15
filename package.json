@@ -1,0 +1,37 @@
+{
+  "name": "hn-scroller",
+  "version": "1.0.0",
+  "description": "Hacker News Infinite Scroller",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server -d --inline --mode development ",
+    "lint": "standard src/",
+    "postinstall": "npm run build",
+    "start": "http-server dist/ -o",
+    "test": "jest"
+  },
+  "author": "João Portela",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "babel-jest": "^25.1.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.12.1",
+    "jest": "^25.1.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "standard": "^14.3.1",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.3",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
