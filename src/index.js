@@ -13,7 +13,7 @@ async function start () {
 
   const client = new HackerNewsHttpClient(
     window.fetch.bind(window),
-    'https://hacker-news.firebaseio.com/'
+    'https://hacker-news.firebaseio.com'
   )
 
   const cache = new StoryCache(window.localStorage)
