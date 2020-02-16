@@ -14,7 +14,7 @@ Tested with:
 
 ## Dependencies
 
-  * `preact`, as a way to improve code readibility and modularization. Preact is a smaller library, compatible with `react`
+  * `preact`, as a way to improve code readibility and modularization. [Preact](https://preactjs.com/) is a smaller alternative to `react`, that's compatible with its API
   * a few development dependencies:
     * `webpack` and a few loaders/plugins to create single js/css bundles
     * `babel` and a few presets for transpiling modern ES to modern browsers
