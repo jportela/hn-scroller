@@ -17,6 +17,7 @@ async function start () {
   )
 
   const cache = new StoryCache(window.localStorage)
+
   let storiesIds = []
 
   try {
@@ -25,8 +26,11 @@ async function start () {
       cache.clearUnusedItems(storiesIds)
     }, 1)
   } catch (e) {
+    // offline or network connectivity issues
+    // retrieves stories from the localStorage cache
     storiesIds = cache.getStories()
   }
+
   const stories = new Stories(storiesIds)
   const storiesProvider = new StoriesProvider(client, stories, cache)
 

@@ -1,3 +1,7 @@
+
+/**
+ * Registers service worker to support offline PWA
+ */
 export async function register () {
   if ('serviceWorker' in navigator) {
     try {

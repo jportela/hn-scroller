@@ -56,10 +56,6 @@ ul {
   filter: blur(3px)
 }
 
-.story-item.is-removed {
-  text-decoration: line-through;
-}
-
 .story-item:nth-child(even) {
   background: #eaeaea;
 }

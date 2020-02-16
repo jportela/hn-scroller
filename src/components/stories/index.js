@@ -1,3 +1,7 @@
+/**
+ * Stories List
+ */
+
 import React, { useEffect, useReducer, useMemo } from 'react'
 import Story from '../story'
 import LazyStory from '../story/lazy'

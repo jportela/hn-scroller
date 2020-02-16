@@ -1,6 +1,12 @@
 /* eslint-env serviceworker */
 
+/**
+ * Compiles to dist/sw.js
+ */
+
 const CACHE_NAME = 'hnscroller-v1'
+
+// caches essential assets
 const CONTENT_TO_CACHE = [
   '/',
   '/index.html',

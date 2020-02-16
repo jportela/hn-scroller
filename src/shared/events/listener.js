@@ -1,3 +1,6 @@
+/**
+ * Observer pattern
+ */
 export default class EventListener {
   constructor () {
     this.listeners = new Set()
@@ -11,6 +14,7 @@ export default class EventListener {
     this.listeners.delete(listener)
   }
 
+  // broadcasts to all listeners
   fire (payload) {
     this.listeners.forEach(listener => listener(payload))
   }

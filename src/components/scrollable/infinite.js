@@ -1,3 +1,7 @@
+/**
+ * Infinite Scroll Container
+ */
+
 import React, { useRef, useEffect } from 'react'
 
 const SCROLL_THRESHOLD = 50

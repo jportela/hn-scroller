@@ -1,3 +1,7 @@
+/**
+ * Story Item
+ */
+
 import React from 'react'
 import StoryTitle from './title'
 import StoryAuthor from './author'
