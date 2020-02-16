@@ -13,7 +13,8 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: 'index.html',
+      chunks : ['main'],
     }),
     new MiniCssExtractPlugin()
   ],
